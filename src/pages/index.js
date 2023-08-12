@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 const handleAppleLogin = async () => {
   try {
     const result = await signIn("apple", {
-      callbackUrl: `${process.env.NEXTAUTH_URL}`,
+      callbackUrl: `https://apple-login-featu8dke-mitenkumar.vercel.app/`,
     });
     console.log("SignIn Result:", result);
   } catch (error) {
