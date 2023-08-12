@@ -29,16 +29,18 @@ export default function Home() {
   }
   return (
     <>
-    {!session ? (
-      <button onClick={handleAppleLogin}>Sign in with Apple</button>
-    ) : (
-      <div>
-        {/* Display user information if signed in */}
-        <p>Welcome, {session.user.name}!</p>
-        <p>Email: {session.user.email}</p>
-        <button onClick={() => signOut()}>Sign Out</button>
-      </div>
-    )}
-  </>
+      {!session ? (
+        <>
+          <p>Welcome</p>
+          <button onClick={handleAppleLogin}>Sign in with Apple</button>
+        </>
+      ) : (
+        <div>
+          <p>Welcome, {session.user.name}!</p>
+          <p>Email: {session.user.email}</p>
+          <button onClick={() => signOut()}>Sign Out</button>
+        </div>
+      )}
+    </>
   );
 }
