@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 const handleAppleLogin = async () => {
   try {
     const result = await signIn("apple", {
-      callbackUrl: `https://apple-login-zeta.vercel.app/`,
+      callbackUrl:"https://apple-login-zeta.vercel.app/",
     });
     console.log("SignIn Result:", result);
   } catch (error) {
