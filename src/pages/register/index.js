@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { useEffect } from "react";
 
 const handleAppleLogin = async () => {
   try {
