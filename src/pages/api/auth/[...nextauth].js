@@ -24,19 +24,19 @@ export default NextAuth({
       },
     },
   },
-  pages: {
-      signIn: '/register'
-  },
-  callbacks: {
-      async signIn(user, account, profile) {
-          console.log(user);
-          return true;
-      },
-      async redirect(url, baseUrl) {
-          return `${process.env.NEXTAUTH_URL}/register`;
-      },
-  },
-  callbackUrl: `${process.env.NEXTAUTH_URL}/accredited-investor`,
+  // pages: {
+  //     signIn: '/register'
+  // },
+  // callbacks: {
+  //     async signIn(user, account, profile) {
+  //         console.log(user);
+  //         return true;
+  //     },
+  //     async redirect(url, baseUrl) {
+  //         return `${process.env.NEXTAUTH_URL}/register`;
+  //     },
+  // },
+  // callbackUrl: `${process.env.NEXTAUTH_URL}/accredited-investor`,
 
   secret: process.env.NEXTAUTH_SECRET,
 });
