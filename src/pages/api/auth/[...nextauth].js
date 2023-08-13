@@ -16,11 +16,7 @@ export default NextAuth({
     })
   ],
 
-  callbacks: {
-    async redirect(url, baseUrl) {
-        return `https://next-login-delta.vercel.app/register`;
-    },
-},
+
 
   cookies: {
     pkceCodeVerifier: {
