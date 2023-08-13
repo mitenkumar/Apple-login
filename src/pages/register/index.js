@@ -1,29 +1,38 @@
-import { signIn,signOut, useSession } from "next-auth/react";
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import { signIn, useSession } from "next-auth/react";
 
+const inter = Inter({ subsets: ["latin"] });
 const handleAppleLogin = async () => {
   try {
-    await signIn("apple");
+    const result = await signIn("apple");
+    if (result?.error) {
+      console.error("Error during Apple Sign-In:", result.error);
+    } else if (result?.session) {
+      console.log("Signed in user:", result.session.user);
+    }
   } catch (error) {
     console.error("Error during Apple Sign-In:", error);
   }
 };
-
 export default function Home() {
   const { data: session } = useSession();
-  console.log(session);
-
+  if (session) {
+    console.log(session);
+  }
   return (
-    <div>
+    <>
+      <button onClick={handleAppleLogin}>Sign in with Apple</button>
       {!session ? (
-        <button onClick={handleAppleLogin}>Sign in with Apple</button>
+        <>
+          <p>Welcome register </p>
+        </>
       ) : (
         <div>
           <p>Email: {session.user.email}</p>
-          <p>Name: {session.user.name}</p>
-      
           <button onClick={() => signOut()}>Sign Out</button>
         </div>
       )}
-    </div>
+    </>
   );
 }
