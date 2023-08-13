@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <button className="cursor-pointer" onClick={push}>
-        Welcome Soham Patel
+        Welcome click here
       </button>
       {!session ? (
         <>
