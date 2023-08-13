@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div>
       {!session ? (
-        <button onClick={handleAppleSignIn(e)}>Sign in with Apple</button>
+        <button onClick={(e)=>handleAppleSignIn(e)}>Sign in with Apple</button>
       ) : (
         <div>
           <p>Email: {session.user.email}</p>

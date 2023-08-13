@@ -1,5 +1,4 @@
 import { signIn } from "next-auth/react";
-import GoogleProvider from "next-auth/providers/google";
 import AppleProvider from "next-auth/providers/apple";
 import NextAuth from "next-auth/next";
 const handleAppleSignIn = async (e) => {
