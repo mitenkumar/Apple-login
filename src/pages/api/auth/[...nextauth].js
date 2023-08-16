@@ -7,7 +7,6 @@ export default NextAuth({
     AppleProvider({
       clientId: process.env.APPLE_CLIENT_ID,
       clientSecret: process.env.APPLE_CLIENT_SECRET,
-      callbackUrl: `https://apple-login-one.vercel.app/api/auth/callback/apple`,
       profile: (profile) => {
         return {
           id: profile.sub,
