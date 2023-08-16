@@ -1,30 +1,27 @@
-import { signOut, useSession } from "next-auth/react";
-import { handleAppleSignIn } from "../api/auth/[...nextauth]";
+import { signIn, useSession } from "next-auth/react";
 
-// const handleAppleLogin = async () => {
-//   try {
-//     await signIn("apple");
-//   } catch (error) {
-//     console.error("Error during Apple Sign-In:", error);
-//   }
-// };
+const handleAppleLogin = async () => {
+ signIn("apple");
 
+};
 export default function Home() {
   const { data: session } = useSession();
-  console.log(session);
-
+  if (session) {
+    console.log(session);
+  }
   return (
-    <div>
+    <>
+      <button onClick={handleAppleLogin}>Sign in with Apple</button>
       {!session ? (
-        <button onClick={(e)=>handleAppleSignIn(e)}>Sign in with Apple</button>
+        <>
+          <p>Welcome register </p>
+        </>
       ) : (
         <div>
           <p>Email: {session.user.email}</p>
-          <p>Name: {session.user.name}</p>
-      
           <button onClick={() => signOut()}>Sign Out</button>
         </div>
       )}
-    </div>
+    </>
   );
 }
